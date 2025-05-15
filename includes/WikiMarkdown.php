@@ -83,7 +83,7 @@ class WikiMarkdown {
 				} else {
 					$refers[$anchor] = true;
 				}
-				return Linker::makeHeadline($matches[1], '>', $anchor, $matches[4], '');
+				return self::makeHeadline($matches[1], '>', $anchor, $matches[4], '');
 			},
 			$out
 		);
@@ -311,6 +311,22 @@ class WikiMarkdown {
 
 		return true;
 	}
+
+	public static function makeHeadline( $level, $attribs, $anchor, $html,
+		$link, $fallbackAnchor = false
+		)
+		{
+		$anchorEscaped = htmlspecialchars($anchor, ENT_COMPAT);
+		$fallback = '';
+		if ($fallbackAnchor !== false && $fallbackAnchor !== $anchor) {
+		$fallbackAnchor = htmlspecialchars($fallbackAnchor, ENT_COMPAT);
+		$fallback = "<span id=\"$fallbackAnchor\"></span>";
+		}
+		return "<h$level$attribs"
+		. "$fallback<span class=\"mw-headline\" id=\"$anchorEscaped\">$html</span>"
+		. $link
+		. "</h$level>";
+    }
 
 	/**
 	 * @return Parsedown
