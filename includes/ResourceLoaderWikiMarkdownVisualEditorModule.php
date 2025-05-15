@@ -3,7 +3,7 @@
 use MediaWiki\ResourceLoader\Context;
 
 use MediaWiki\ResourceLoader\Module;
-class ResourceLoaderWikiMarkdownVisualEditorModule extends ResourceLoaderFileModule {
+class ResourceLoaderWikiMarkdownVisualEditorModule extends Module {
 
 	protected $targets = [ 'desktop', 'mobile' ];
 
