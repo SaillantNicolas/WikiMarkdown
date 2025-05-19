@@ -58,7 +58,7 @@
 		}
 	},
 	"ContentHandlers": {
-		"markdown": "MarkdownContentHandler"
+		"markdown": {"class": "MarkdownContentHandler"}
 	},
 	"TrackingCategories": [
 		"markdown-error-category"

@@ -10,7 +10,7 @@ class MarkdownContentHandler extends TextContentHandler {
 	 * @param string[] $formats
 	 */
 	public function __construct(
-		$modelId = CONTENT_MODEL_MARKDOWN, $formats = [ CONTENT_FORMAT_MARKDOWN ]
+		$modelId = 'markdown', $formats = ['text/markdown']	
 	) {
 		parent::__construct( $modelId, $formats );
 	}
